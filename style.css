@@ -1,0 +1,29 @@
+.grid-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr 1fr;
+  gap: 1px 1px;
+  grid-template-areas:
+    "play-area play-area play-area play-area play-area play-area"
+    "play-area play-area play-area play-area play-area play-area"
+    "player-dashboard player-dashboard player-dashboard player-dashboard game-details game-details";
+}
+.player-dashboard {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  gap: 1px 1px;
+  grid-template-areas:
+    ". . ."
+    ". . .";
+  grid-area: player-dashboard;
+}
+.game-details {
+  grid-area: game-details;
+}
+.play-area {
+  grid-area: play-area;
+}
+div {
+  border: 1px solid;
+}

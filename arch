@@ -1,0 +1,43 @@
+Server:
+    All game state.
+    Connections to each client.
+
+Client:
+    Login (auth0?, work this out later)
+    Click ready -> event to server
+    Render relevant game state (own cards, played cards, round, turn, points) -> recieved from server
+    Play card -> send event to server
+
+
+Flow:
+    When n sockets click ready. 1 < n < 6
+        initialize game.
+        send initial game state to clients.
+    Turn 1 - l 
+        wait for n socket events (validate)
+        update game state (cards on board, rotate hands)
+        send game state to client
+    Round 1 - 3
+        Score.
+        Update game state -> new deck, distribute cards
+    End game
+
+Client Components:
+    Socket Service:
+        Recieves game state
+        Emits card selection
+    Client UI:
+        Main window:
+            GameInfo:
+                Round: x/y
+                Turn: ? might be obvious from cards.
+            CardLanes
+            ScoreBoard
+            Hand
+        Client Components:
+            Card lane:
+                Fit x cards
+            Card:
+                Picture:
+                Type:
+                Id:
